@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Searching the Herculaneum Scrolls | Matt Macosko</title>
+<meta name="description" content="We searched every open ink map from the Herculaneum scrolls and found candidate Greek letters on four unread pieces. Raw images, 3D sheets and method included.">
+<meta property="og:title" content="Searching the Herculaneum Scrolls">
+<meta property="og:description" content="Candidate Greek letters on four unread scroll pieces, with every raw AI ink map so you can check them yourself.">
+<meta property="og:image" content="assets/og.jpg">
+<style>
+:root{--bg:#07060a;--panel:#100e16;--line:#221f2c;--text:#ece9e4;--muted:#9d98a6;--violet:#b278ff;--gold:#ecc478}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:18px/1.65 Georgia,"Times New Roman",serif;-webkit-font-smoothing:antialiased}
+a{color:var(--violet)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.kicker{font:700 13px/1 Georgia,serif;letter-spacing:.18em;text-transform:uppercase;color:var(--violet)}
+h1{font-weight:400;font-size:clamp(34px,6vw,64px);line-height:1.1;margin:.35em 0 .3em}
+h2{font-weight:400;font-size:clamp(26px,3.6vw,38px);margin:.2em 0 .5em}
+h3{font-weight:400;font-size:24px;margin:0}
+.lede{color:var(--muted);font-style:italic;font-size:20px;max-width:760px}
+header{padding:72px 0 28px;background:radial-gradient(1200px 500px at 50% -10%,#2a1847 0%,transparent 70%)}
+section{padding:56px 0;border-top:1px solid var(--line)}
+video{width:100%;border-radius:14px;background:#000;display:block;box-shadow:0 30px 80px #0009}
+.rule{width:64px;height:3px;background:var(--gold);margin:14px 0 18px}
+.viewer{position:relative;height:min(70vh,620px);border-radius:14px;overflow:hidden;background:radial-gradient(circle at 50% 40%,#16121f,#050407)}
+.viewer canvas{display:block;width:100%;height:100%;touch-action:none}
+.controls{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center;margin-top:14px}
+.pill{border:1px solid var(--line);background:var(--panel);color:var(--text);padding:8px 16px;border-radius:999px;font:15px Georgia,serif;cursor:pointer}
+.pill.on{border-color:var(--violet);color:var(--violet)}
+input[type=range]{accent-color:var(--violet);width:220px}
+.hint{position:absolute;left:16px;bottom:12px;color:var(--muted);font-size:14px;font-style:italic;pointer-events:none}
+.find{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px;margin:0 0 26px}
+.find-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:baseline}
+.badge{font:700 12px/1 Georgia,serif;letter-spacing:.12em;text-transform:uppercase;padding:7px 11px;border-radius:999px}
+.strong{background:#1f3a24;color:#9fe0a8}.medium{background:#3a331f;color:var(--gold)}.weak{background:#3a1f24;color:#f0a0a8}
+.letters{font-size:30px;color:var(--gold);margin:14px 0 2px;letter-spacing:.04em}
+.meaning{color:var(--muted);font-style:italic;margin:0 0 12px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 10px}
+.shot{width:100%;border-radius:10px;display:block;background:#000;max-height:560px;object-fit:contain}
+.note{color:var(--muted);font-size:16px}
+ol.steps{padding-left:1.2em}ol.steps li{margin:.4em 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+@media(max-width:760px){.grid2{grid-template-columns:1fr}.letters{font-size:24px}}
+.honest{border-left:3px solid var(--gold);padding:4px 0 4px 18px}
+footer{padding:40px 0 70px;color:var(--muted);font-size:15px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="kicker">The Herculaneum Scrolls</div>
+  <h1>Burned by Vesuvius. Read by X-rays.</h1>
+  <p class="lede">I searched every open AI ink map from the Herculaneum scrolls, 309 traced layers across 13 scrolls, and found candidate Greek letters on four pieces that have no published reading. Every raw image is below so you can check them yourself.</p>
+</div></header>
+
+<section style="border-top:0;padding-top:10px"><div class="wrap">
+  <video src="assets/herculaneum-recap.mp4" controls playsinline preload="metadata" poster="assets/og.jpg"></video>
+</div></section>
+
+<section><div class="wrap">
+  <div class="kicker">Background</div>
+  <h2>A library buried in 79 AD</h2>
+  <div class="rule"></div>
+  <p>When Mount Vesuvius erupted, it buried a Roman villa at Herculaneum along with its library. About 1,800 papyrus scrolls were dug up in the 1750s, carbonized into lumps of charcoal. A few hundred were never opened, because unrolling them would destroy them. In 2026, PHerc. 1667 became the first scroll read from beginning to end without opening it.</p>
+  <ol class="steps">
+    <li><b>Scan.</b> A synchrotron X-ray scan maps the inside of the rolled scroll in 3D.</li>
+    <li><b>Trace.</b> Software and volunteers follow one layer of papyrus through the scan and flatten it.</li>
+    <li><b>Find the ink.</b> AI models trained on known letters mark where the ink sits on that layer.</li>
+  </ol>
+  <p class="note">All of this data is open, published by the <a href="https://scrollprize.org">Vesuvius Challenge</a>.</p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="kicker">Spin it yourself</div>
+  <h2>A real layer from inside a scroll</h2>
+  <div class="rule"></div>
+  <div class="viewer" id="viewer"><div class="hint">Drag to rotate, pinch or scroll to zoom</div></div>
+  <div class="controls">
+    <button class="pill on" data-sheet="p9b">PHerc. 9B</button>
+    <button class="pill" data-sheet="p841">PHerc. 841</button>
+    <label>Unroll <input type="range" id="unroll" min="0" max="100" value="0"></label>
+    <button class="pill on" id="inkbtn">Ink on</button>
+  </div>
+  <p class="note">The shape is the real traced surface from the CT scan. The purple is ink predicted by AI model A from the Vesuvius Challenge community. Slide "Unroll" to flatten it.</p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="kicker">Proof the method works</div>
+  <h2>First, a scroll that is already read</h2>
+  <div class="rule"></div>
+  <img class="shot" src="assets/proof_1667.jpg" alt="Ink map of PHerc. 1667 showing four columns of Greek text">
+  <p class="note">PHerc. 1667. On a scroll experts have already read, the same kind of ink maps show clean columns of Greek. One line reads ΤΗΝ ΑΥΤΗΝ ΕΧΟΝ, "having the same." The unread pieces below are much harder.</p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="kicker">What we found</div>
+  <h2>Four pieces with no published reading</h2>
+  <div class="rule"></div>
+  <p class="note" style="margin-bottom:26px">Several AI models were trained separately to find ink. When two or three of them show the same letters in the same place, that is much harder to explain away as noise. Tap the model buttons to compare the raw images yourself.</p>
+  <div id="finds"></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="honest">
+    <div class="kicker" style="color:var(--gold)">What this is, and what it is not</div>
+    <p>These are <b>candidate letters, not translations</b>. Ink maps are noisy, and the eye wants to see words. Only trained papyrologists can confirm a reading. I am sharing the raw images, unedited apart from the purple color, so anyone can check this work. If you are a papyrologist and see something different, I would love to hear it.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap grid2">
+  <div>
+    <div class="kicker">How I searched</div>
+    <ol class="steps note">
+      <li>Downloaded every published ink map preview from the Vesuvius Challenge open data bucket: 682 images, 13 scrolls.</li>
+      <li>Picked the sharpest map for each traced layer: 309 layers.</li>
+      <li>AI agents looked at every layer and scored it for readable letters.</li>
+      <li>I checked every high-scoring layer by eye, then compared it across every AI model that had been run on it.</li>
+      <li>Kept only letters visible in more than one model. One find with a single model is labeled weak.</li>
+    </ol>
+  </div>
+  <div>
+    <div class="kicker">Data and credits</div>
+    <p class="note">Scans, traced layers and ink models: <a href="https://scrollprize.org/data">Vesuvius Challenge open data</a>, CC BY-NC 4.0. Scans from the ESRF synchrotron in Grenoble and partners. Ink models built by the Vesuvius Challenge community. Search, 3D renders, video and this page by Matt Macosko. Not affiliated with the Vesuvius Challenge.</p>
+  </div>
+</div></section>
+
+<footer><div class="wrap">Matt Macosko · November 2026</div></footer>
+
+<script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import {OrbitControls} from './vendor/OrbitControls.js';
+
+/* ---------- finds ---------- */
+const FINDS=[
+ {id:'9b',name:'PHerc. 9B',url:'https://scrollprize.org/data_browser/PHerc0009B',badge:['strong','3 models agree'],
+  letters:'…ΟΜΕ?ΩΝ…   …ΤΑ…ΘΑΛ…   …ΟΛΟΝ…',meaning:'Several full rows. ΘΑΛ… could be the start of θάλαττα, "sea". Not yet read as words.',
+  models:['A','C','D','B'],note:'Models A, C and D all show the same rows of letters. Model B shows almost nothing on this layer, which is also shown.'},
+ {id:'343',name:'PHerc. 343',url:'https://scrollprize.org/data_browser/PHerc0343',badge:['medium','2 models agree'],
+  letters:'…ΑΝ ΤΟ ΓΙΝΟΜ…',meaning:'Possibly τὸ γινόμενον, "that which comes to be", a common phrase in Greek philosophy.',
+  models:['C','D','B'],note:'This layer looks like a region someone on the project already cut out to study, so it may not be new to them.'},
+ {id:'841',name:'PHerc. 841',url:'https://scrollprize.org/data_browser/PHerc0841',badge:['medium','3 models, short'],
+  letters:'ΚΑ(Ι?)',meaning:'Probably καί, "and". The last letter is not certain.',
+  models:['A','C','D','B'],note:'Two short lines of strokes show in models A, C and D.'},
+ {id:'500p2',name:'PHerc. 500P2 (fragment)',url:'https://scrollprize.org/data_browser/PHerc0500P2',badge:['weak','1 model only'],
+  letters:'ΜΗΤΙΓΕ ?',meaning:'Possibly μή τί γε, "let alone", a common Greek phrase. Needs a second model to check.',
+  models:['A'],note:'Only one AI model has been run on this piece, so there is nothing to cross-check against yet.'}];
+const fd=document.getElementById('finds');
+for(const f of FINDS){
+  const el=document.createElement('div');el.className='find';
+  el.innerHTML=`<div class="find-head"><h3>${f.name}</h3><span class="badge ${f.badge[0]}">${f.badge[1]}</span></div>
+  <div class="letters">${f.letters}</div><p class="meaning">${f.meaning}</p>
+  <div class="tabs">${f.models.map((m,i)=>`<button class="pill ${i?'':'on'}" data-m="${m}">AI model ${m}</button>`).join('')}</div>
+  <img class="shot" src="assets/find_${f.id}_${f.models[0]}.jpg" alt="${f.name} ink map, AI model ${f.models[0]}">
+  <p class="note">${f.note} <a href="${f.url}">Source data</a></p>`;
+  el.querySelectorAll('.tabs .pill').forEach(b=>b.onclick=()=>{
+    el.querySelectorAll('.tabs .pill').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+    const img=el.querySelector('img.shot');img.src=`assets/find_${f.id}_${b.dataset.m}.jpg`;img.alt=`${f.name} ink map, AI model ${b.dataset.m}`;});
+  fd.appendChild(el);
+}
+
+/* ---------- 3D viewer ---------- */
+const box=document.getElementById('viewer');
+const renderer=new THREE.WebGLRenderer({antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.toneMapping=THREE.ACESFilmicToneMapping;
+box.prepend(renderer.domElement);
+const scene=new THREE.Scene();
+const cam=new THREE.PerspectiveCamera(35,1,0.1,100);cam.position.set(-2.2,1.0,4.6);
+const ctl=new OrbitControls(cam,renderer.domElement);ctl.enableDamping=true;let touched=false;const t0=performance.now();
+ctl.minDistance=1.6;ctl.maxDistance=9;
+scene.add(new THREE.AmbientLight(0x6b5a7a,0.6));
+const key=new THREE.DirectionalLight(0xffd2a0,2.2);key.position.set(-3,3,4);scene.add(key);
+const rim=new THREE.DirectionalLight(0x8aa0ff,1.6);rim.position.set(3,1,-3);scene.add(rim);
+const uni={inkMap:{value:null},inkOn:{value:1}};
+const mat=new THREE.MeshStandardMaterial({color:0x5a4130,roughness:0.85,side:THREE.DoubleSide});
+mat.onBeforeCompile=s=>{
+  s.uniforms.inkMap=uni.inkMap;s.uniforms.inkOn=uni.inkOn;
+  s.vertexShader=s.vertexShader.replace('#include <common>','#include <common>\nvarying vec2 vUv2;').replace('#include <uv_vertex>','#include <uv_vertex>\nvUv2=uv;');
+  s.fragmentShader=s.fragmentShader.replace('#include <common>','#include <common>\nvarying vec2 vUv2;uniform sampler2D inkMap;uniform float inkOn;')
+   .replace('#include <emissivemap_fragment>','#include <emissivemap_fragment>\nfloat ink=smoothstep(0.38,0.75,texture2D(inkMap,vUv2).r)*inkOn;diffuseColor.rgb=mix(diffuseColor.rgb,vec3(0.32,0.06,0.75),ink);totalEmissiveRadiance+=vec3(0.55,0.15,1.0)*ink*1.4;');
+};
+let mesh,curved,flat;
+const cache={};
+async function load(k){
+  if(!cache[k]){
+    const meta=await (await fetch(`assets/${k}.json`)).json();
+    const buf=await (await fetch(`assets/${k}.bin`)).arrayBuffer();
+    const n=meta.n,t=meta.t;let o=0;
+    const c=new Float32Array(buf,o,n*3);o+=n*12;const f=new Float32Array(buf,o,n*3);o+=n*12;
+    const uv=new Float32Array(buf,o,n*2);o+=n*8;const idx=new Uint32Array(buf,o,t*3);
+    const tex=await new THREE.TextureLoader().loadAsync(`assets/${k}_ink.png`);tex.colorSpace=THREE.NoColorSpace;tex.anisotropy=8;
+    cache[k]={c,f,uv,idx,tex};
+  }
+  const d=cache[k];
+  if(mesh){scene.remove(mesh);mesh.geometry.dispose();}
+  const g=new THREE.BufferGeometry();
+  g.setAttribute('position',new THREE.BufferAttribute(new Float32Array(d.c),3));
+  g.setAttribute('uv',new THREE.BufferAttribute(d.uv,2));
+  g.setIndex(new THREE.BufferAttribute(d.idx,1));g.computeVertexNormals();
+  curved=d.c;flat=d.f;uni.inkMap.value=d.tex;
+  mesh=new THREE.Mesh(g,mat);scene.add(mesh);setUnroll(+unroll.value/100);
+}
+const unroll=document.getElementById('unroll');
+function setUnroll(t){
+  if(!mesh)return;const p=mesh.geometry.attributes.position.array;const e=t*t*(3-2*t);
+  for(let i=0;i<p.length;i++)p[i]=curved[i]+(flat[i]-curved[i])*e;
+  mesh.geometry.attributes.position.needsUpdate=true;mesh.geometry.computeVertexNormals();
+}
+unroll.oninput=()=>setUnroll(+unroll.value/100);
+document.querySelectorAll('[data-sheet]').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('[data-sheet]').forEach(x=>x.classList.remove('on'));b.classList.add('on');load(b.dataset.sheet);});
+const inkbtn=document.getElementById('inkbtn');
+inkbtn.onclick=()=>{uni.inkOn.value=1-uni.inkOn.value;inkbtn.classList.toggle('on');inkbtn.textContent=uni.inkOn.value?'Ink on':'Ink off';};
+function resize(){const w=box.clientWidth,h=box.clientHeight;renderer.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();}
+new ResizeObserver(resize).observe(box);resize();
+renderer.domElement.addEventListener('pointerdown',()=>touched=true);renderer.domElement.addEventListener('wheel',()=>touched=true);
+(function loop(){requestAnimationFrame(loop);if(!touched){const a=Math.sin((performance.now()-t0)/4000)*0.55;cam.position.set(Math.sin(a)*5,0.9,Math.cos(a)*5);cam.lookAt(0,0,0);}ctl.update();renderer.render(scene,cam);})();
+load('p9b');
+</script>
+</body>
+</html>
